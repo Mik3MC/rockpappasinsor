@@ -1,0 +1,110 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Orbitron&family=Oswald&family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
+    <title>RockPaperScissors</title>
+  </head>
+  <body>
+    <header>
+      <h1>Rock Paper Scissors</h1>
+      <hr />
+    </header>
+    <p>
+      R for rock P for paper and S for whatever you get the point, just pick a
+      key.
+    </p>
+
+    <div id="scores">
+      <p id="wins-text">Wins: 0</p>
+      <p id="losses-text">Losses: 0</p>
+      <p id="ties-text">Ties: 0</p>
+    </div>
+
+    <hr />
+
+    <div id="selections">
+      <p id="userchoice-text">try me.</p>
+      <p id="computerchoice-text"></p>
+    </div>
+
+    <script type="text/javascript">
+      var wins = 1;
+      var losses = 1;
+      var ties = 1;
+
+      alert(
+        "Welcome child. I am DavED, if you dont know how to play Rock Paper Scissors at this point in your life then you may need to get outside more."
+      );
+
+      var userChoiceText = document.getElementById("userchoice-text");
+
+      var computerChoiceText = document.getElementById("computerchoice-text");
+
+      var winsText = document.getElementById("wins-text");
+
+      var lossesText = document.getElementById("losses-text");
+
+      var tiesText = document.getElementById("ties-text");
+
+      document.onkeyup = function (event) {
+        console.log(event.key);
+
+        var playerselection = event.key;
+
+        var computerOptions = ["r", "p", "s"];
+
+        var computerChoice =
+          computerOptions[Math.floor(Math.random() * computerOptions.length)];
+
+        if (
+          playerselection === "r" ||
+          playerselection === "p" ||
+          playerselection === "s"
+        ) {
+          userChoiceText.textContent = "You chose: " + playerselection;
+
+          computerChoiceText.textContent = "i chose: " + computerChoice;
+        } else {
+          alert("Hey pick a key i told you to pick idiot");
+        }
+
+        // updates
+        if (
+          (playerselection === "r" && computerChoice === "s") ||
+          (playerselection === "p" && computerChoice === "r") ||
+          (playerselection === "s" && computerChoice === "p")
+        ) {
+          winsText.textContent = "Wins: " + wins++;
+        }
+
+        if (
+          (playerselection === "s" && computerChoice === "r") ||
+          (playerselection === "r" && computerChoice === "p") ||
+          (playerselection === "p" && computerChoice === "s")
+        ) {
+          lossesText.textContent = "Losses: " + losses++;
+        }
+
+        if (
+          (playerselection === "r" && computerChoice === "r") ||
+          (playerselection === "p" && computerChoice === "p") ||
+          (playerselection === "s" && computerChoice === "s")
+        ) {
+          tiesText.textContent = "Ties: " + ties++;
+        }
+      };
+    </script>
+    <img
+      src="https://mail.google.com/mail/u/0?ui=2&ik=77c471505e&attid=0.1&permmsgid=msg-a:r1216136928311896418&th=181d66d01c295412&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ-_4eheESu-vUskCTjH1e_tGtm8Y83IdY7kw7O46Ii14rz-rhdzl0LdvGAuCF5abyrgxwgzNzps7kj4uMAIvlDiNb6TazAkO16xcbhFsVW3kmMDGLM4-z2I0ro&disp=emb&realattid=ii_l5ae7ac50"
+      alt="peep"
+    />
+  </body>
+</html>
